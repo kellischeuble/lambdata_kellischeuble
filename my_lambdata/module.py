@@ -6,7 +6,7 @@ class Wrangle:
     def __init__(self, df):
         self.df = df
 
-    def separate_dates(column):
+    def separate_dates(self, column):
         """
         Parameter df is a dataframe
         Parameter column is a column with date values
@@ -19,11 +19,11 @@ class Wrangle:
         return self.df
 
 
-    def add_list(list):
+    def add_list(self, list):
         """
         Returns a dataframe with the paramater list added as a column
         Param list must have number of values as columns in dataframe
         """
-        series = pd.Series(list)
+        self.series = pd.Series(list)
         self.df = self.df.append(series)
         return self.df
