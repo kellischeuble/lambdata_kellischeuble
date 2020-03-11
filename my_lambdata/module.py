@@ -16,7 +16,6 @@ class Wrangle:
         self.df["day"] = self.df[column].dt.day
         self.df["month"] = self.df[column].dt.month
         self.df["year"] = self.df[column].dt.year
-        return self.df
 
 
     def add_list(self, list):
@@ -26,4 +25,3 @@ class Wrangle:
         """
         self.series = pd.Series(list)
         self.df = self.df.append(series)
-        return self.df
