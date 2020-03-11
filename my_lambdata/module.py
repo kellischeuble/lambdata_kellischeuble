@@ -1,15 +1,29 @@
 import pandas as pd
 
 
-def separate_dates(df, column):
-    df[column] = pd.to_datetime(df[column])
-    df["day"] = df[column].dt.day
-    df["month"] = df[column].dt.month
-    df["year"] = df[column].dt.year
-    return df
+class Wrangle:  
+
+    def __init__(self, df):
+        self.df = df
+
+    def separate_dates(column):
+        """
+        Parameter df is a dataframe
+        Parameter column is a column with date values
+        Returns dataframe with split columns for day, month, year
+        """
+        self.df[column] = pd.to_datetime(self.df[column])
+        self.df["day"] = self.df[column].dt.day
+        self.df["month"] = self.df[column].dt.month
+        self.df["year"] = self.df[column].dt.year
+        return self.df
 
 
-def add_list(df, list):
-    series = pd.Series(list)
-    df = df.append(series)
-    return df
+    def add_list(list):
+        """
+        Returns a dataframe with the paramater list added as a column
+        Param list must have number of values as columns in dataframe
+        """
+        series = pd.Series(list)
+        self.df = self.df.append(series)
+        return self.df
